@@ -4,10 +4,104 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Usuarios</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Estilos -->
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f7;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #1d1d1f;
+        }
+
+        /* Formulario */
+        form {
+            background: #ffffff;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        input {
+            padding: 0.8rem;
+            font-size: 1rem;
+            border: 1px solid #d1d1d6;
+            border-radius: 8px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        input:focus {
+            border-color: #393d41;
+            box-shadow: 0 0 0 4px rgba(179, 178, 178, 0.3);
+        }
+
+        button {
+            padding: 0.8rem 1rem;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #fff;
+            background-color: #242525;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #5b5b5b;
+        }
+
+        /* Lista de usuarios */
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 2rem 0 0;
+            max-width: 600px;
+            width: 100%;
+        }
+
+        li {
+            background: #ffffff;
+            padding: 1rem;
+            margin-bottom: 0.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        li span {
+            font-weight: 600;
+            color: #707070;
+        }
+    </style>
 </head>
 <body>
-    <!-- Formulario para agregar nuevos usuarios -->
+    <!-- Título -->
     <h1>Usuarios</h1>
+
+    <!-- Formulario para agregar nuevos usuarios -->
     <form action="/users" method="POST">
         <input type="text" name="name" placeholder="Nombre" required />
         <input type="email" name="email" placeholder="Correo electrónico" required />
@@ -17,7 +111,10 @@
     <!-- Lista de usuarios mostrados -->
     <ul>
         <% users.forEach(user => { %>
-            <li><%= user.name %> - <%= user.email %></li>
+            <li>
+                <span><%= user.name %></span>
+                <span><%= user.email %></span>
+            </li>
         <% }) %>
     </ul>
 </body>
